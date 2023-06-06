@@ -8,8 +8,11 @@ public class Playlist {
     private int userId;
 
     public Playlist(String description, int id, boolean isPublic, String name, int userId) {
-        this.description = description;
+        this(description,isPublic,name,userId);
         this.id = id;
+    }
+    public Playlist(String description, boolean isPublic, String name, int userId) {
+        this.description = description;
         this.isPublic = isPublic;
         this.name = name;
         this.userId = userId;
