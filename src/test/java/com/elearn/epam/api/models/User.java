@@ -1,4 +1,4 @@
-package com.elearn.epam.api;
+package com.elearn.epam.api.models;
 
 public class User {
     private String email;

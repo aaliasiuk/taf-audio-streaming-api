@@ -1,4 +1,4 @@
-package com.elearn.epam.api;
+package com.elearn.epam.api.models;
 
 public class Playlist {
     private String description;
@@ -17,4 +17,5 @@ public class Playlist {
         this.name = name;
         this.userId = userId;
     }
+
 }
