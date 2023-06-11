@@ -26,12 +26,27 @@ public class PlaylistController {
     }
 
     public Response getPlaylistById(int id) {
-        String endpoint = baseUrl + "api/playlists";
+        String endpoint = baseUrl + "api/playlists/{id}";
         Response response = given()
-                .queryParam("id", id)
+                .header("Content-Type", "application/json")
+                .pathParam("id", id)
                 .when()
                 .get(endpoint);
         responseData.setStatusCode(response.getStatusCode());
         return response;
     }
+
+    public Response updatePlaylist(int playlistId, String description, boolean isPublic, String name, int userId) {
+        String endpoint = baseUrl + "api/playlists/{id}";
+        Playlist playlist = new Playlist(playlistId, description, isPublic, name, userId);
+        Response response = given()
+                .header("Content-Type", "application/json")
+                .pathParams("id", playlistId)
+                .when()
+                .body(playlist)
+                .put(endpoint);
+
+        return response;
+    }
+
 }
